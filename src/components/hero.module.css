@@ -84,14 +84,29 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 0 2rem;
+        padding: 6rem 1.5rem 0;
+        /* Added top padding to clear menu */
+        justify-content: flex-start;
+        /* Start from top so padding pushes it down */
+        min-height: 100vh;
+    }
+
+    .greeting {
+        font-size: 1rem;
     }
 
     .headline {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .subheadline {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
 }
