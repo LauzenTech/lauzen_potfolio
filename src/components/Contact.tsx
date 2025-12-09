@@ -49,14 +49,6 @@ export default function Contact() {
                 Diga Olá
             </motion.a>
 
-            <div className={styles.footer}>
-                <div className={styles.socials}>
-                    <a href="https://github.com" target="_blank" rel="noreferrer" className={styles.socialLink}><FiGithub /></a>
-                    <a href="https://www.linkedin.com/in/ladislau-piedoso-borges-402800273/" target="_blank" rel="noreferrer" className={styles.socialLink}><FiLinkedin /></a>
-                    <a href="mailto:seuemail@exemplo.com" className={styles.socialLink}><FiMail /></a>
-                </div>
-                <p>Desenvolvido por Ladislau Piedoso Borges</p>
-            </div>
         </section>
     );
 }

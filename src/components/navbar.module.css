@@ -10,7 +10,6 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background: rgba(18, 18, 18, 0.5);
-    /* Semi-transparent background */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -19,6 +18,8 @@
     font-weight: 700;
     color: var(--foreground);
     letter-spacing: -0.05em;
+    z-index: 1001;
+    /* Above mobile menu */
 }
 
 .logo span {
@@ -38,6 +39,7 @@
     transition: color 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    text-decoration: none;
 }
 
 .link:hover {
@@ -52,6 +54,8 @@
     font-size: 0.9rem;
     font-weight: 600;
     transition: all 0.2s ease;
+    text-decoration: none;
+    display: block;
 }
 
 .cta:hover {
@@ -59,9 +63,55 @@
     color: #000;
 }
 
+.mobileToggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--primary-orange);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.mobileLinks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.mobileLinks a {
+    color: var(--foreground);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mobileLinks a:hover {
+    color: var(--primary-orange);
+}
+
 @media (max-width: 768px) {
-    .links {
+
+    .links,
+    .cta {
         display: none;
-        /* Hide links on mobile for now (simple MVP) */
+    }
+
+    .mobileToggle {
+        display: block;
     }
 }
