@@ -56,8 +56,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    /* Lowest Interactive Layer */
+    z-index: 5;
+    /* Increased to sit above static content */
+    display: block;
+    /* Essential for empty anchor */
 }
 
 .card:hover {

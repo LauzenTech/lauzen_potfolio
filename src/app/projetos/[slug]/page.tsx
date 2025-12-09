@@ -6,9 +6,9 @@ import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { FiGithub, FiExternalLink, FiArrowLeft } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiArrowLeft, FiTarget, FiCheckCircle } from 'react-icons/fi';
 import styles from './project.module.css';
-import pageStyles from '../../page.module.css'; // Reuse page layout styles
+import pageStyles from '../../page.module.css';
 import { motion } from 'framer-motion';
 import { use } from 'react';
 
@@ -23,44 +23,30 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
     return (
         <div className={pageStyles.page}>
             <Navbar />
-            <div className={pageStyles.main}>
-                <motion.div
-                    className={styles.container}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <Link href="/#projetos" className={styles.backLink}>
-                        <FiArrowLeft style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-                        Voltar aos Projetos
-                    </Link>
 
-                    {/* Header */}
-                    <header className={styles.header}>
-                        <motion.h1
-                            className={styles.title}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            {project.title}
-                        </motion.h1>
+            {/* Hero Section */}
+            <main className={pageStyles.main}>
+                <div className={styles.hero}>
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Link href="/#projetos" className={styles.backLink}>
+                            <FiArrowLeft /> Voltar aos Projetos
+                        </Link>
+                    </motion.div>
 
-                        <motion.p
-                            className={styles.description}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.3 }}
-                        >
-                            {project.description}
-                        </motion.p>
+                    <motion.div
+                        className={styles.heroContent}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                        <h1 className={styles.title}>{project.title}</h1>
+                        <p className={styles.description}>{project.description}</p>
 
-                        <motion.div
-                            className={styles.meta}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                        >
+                        <div className={styles.metaBar}>
                             <div className={styles.tags}>
                                 {project.tags.map(tag => (
                                     <span key={tag} className={styles.tag}>#{tag}</span>
@@ -68,53 +54,78 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                             </div>
 
                             <div className={styles.links}>
-                                <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" className={`${styles.linkButton} ${styles.secondaryLink}`}>
                                     <FiGithub /> Código
                                 </a>
-                                <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                                    <FiExternalLink /> Live Demo
+                                <a href={project.link} target="_blank" rel="noopener noreferrer" className={`${styles.linkButton} ${styles.primaryLink}`}>
+                                    <FiExternalLink /> Ver Projeto
                                 </a>
                             </div>
-                        </motion.div>
-                    </header>
+                        </div>
+                    </motion.div>
+                </div>
 
-                    {/* Case Study Content */}
-                    <div className={styles.content}>
-                        <motion.section
-                            className={styles.section}
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className={styles.sectionTitle}>O Desafio</h2>
-                            <p className={styles.sectionText}>{project.challenge}</p>
-                        </motion.section>
+                {/* Featured Image - Robust Rendering */}
+                {project.image && (
+                    <motion.div
+                        className={styles.imageContainer}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                    >
+                        <div className={styles.imageFrame}>
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className={styles.projectImage}
+                            />
+                        </div>
+                    </motion.div>
+                )}
 
-                        <motion.section
-                            className={styles.section}
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className={styles.sectionTitle}>A Solução</h2>
-                            <p className={styles.sectionText}>{project.solution}</p>
-                        </motion.section>
+                {/* Grid Content */}
+                <div className={styles.contentGrid}>
+                    <motion.section
+                        className={styles.sectionCard}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
+                        <h2 className={styles.sectionTitle}>
+                            <FiTarget className={styles.icon} />
+                            O Desafio
+                        </h2>
+                        <p className={styles.sectionText}>{project.challenge}</p>
+                    </motion.section>
 
-                        <motion.section
-                            className={`${styles.section} ${styles.roiSection}`}
-                            initial={{ scale: 0.95, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className={styles.roiTitle}>Impacto & ROI</h2>
-                            <p className={styles.roiText}>{project.roi}</p>
-                        </motion.section>
-                    </div>
+                    <motion.section
+                        className={styles.sectionCard}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <h2 className={styles.sectionTitle}>
+                            <FiCheckCircle className={styles.icon} />
+                            A Solução
+                        </h2>
+                        <p className={styles.sectionText}>{project.solution}</p>
+                    </motion.section>
 
-                </motion.div>
+                    {/* ROI Banner */}
+                    <motion.div
+                        className={styles.roiContainer}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className={styles.roiLabel}>Impacto no Negócio</span>
+                        <h3 className={styles.roiValue}>{project.roi}</h3>
+                    </motion.div>
+                </div>
                 <Contact />
                 <Footer />
-            </div>
+            </main>
         </div>
     );
 }

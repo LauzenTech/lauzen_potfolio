@@ -1,7 +1,45 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useInView, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import styles from './about.module.css';
+
+// Component to handle counting animation
+function Counter({ value }: { value: string }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    // Parse numeric part and suffix/prefix
+    const numericValue = parseInt(value.replace(/\D/g, '')) || 0;
+    const prefix = value.startsWith('+') ? '+' : '';
+    const suffix = value.endsWith('%') ? '%' : '';
+    const isNumber = !isNaN(parseInt(value[0])) || value.startsWith('+');
+
+    const count = useSpring(0, {
+        stiffness: 50,
+        damping: 15,
+        duration: 2
+    });
+
+    const rounded = useTransform(count, (latest) => Math.round(latest));
+
+    useEffect(() => {
+        if (isInView && isNumber) {
+            count.set(numericValue);
+        }
+    }, [isInView, numericValue, isNumber, count]);
+
+    // If it's not a number (e.g. "ROI", "MVP"), just return text
+    if (!isNumber) return <span>{value}</span>;
+
+    return (
+        <span ref={ref} style={{ display: 'inline-flex' }}>
+            {prefix}
+            <motion.span>{rounded}</motion.span>
+            {suffix}
+        </span>
+    );
+}
 
 export default function About() {
     return (
@@ -56,7 +94,9 @@ export default function About() {
                             transition={{ duration: 0.4, delay: 0.1 * index }}
                             whileHover={{ scale: 1.05 }}
                         >
-                            <span className={styles.statValue}>{stat.value}</span>
+                            <span className={styles.statValue}>
+                                <Counter value={stat.value} />
+                            </span>
                             <span className={styles.statLabel}>{stat.label}</span>
                         </motion.div>
                     ))}

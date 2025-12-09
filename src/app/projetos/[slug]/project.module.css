@@ -1,144 +1,219 @@
-.container {
-    min-height: 100vh;
+/* Global Container - Removed opaque wrapper to respect global layout */
+
+/* Hero Section */
+.hero {
+    padding: 8rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 8rem 2rem 4rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    gap: 2rem;
 }
 
 .backLink {
     color: var(--primary-orange);
     font-family: monospace;
-    margin-bottom: 2rem;
-    display: inline-block;
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
     transition: transform 0.2s;
+    width: fit-content;
 }
 
 .backLink:hover {
     transform: translateX(-5px);
 }
 
-.header {
-    margin-bottom: 4rem;
+.heroContent {
+    max-width: 900px;
 }
 
 .title {
-    font-size: 3.5rem;
+    font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 800;
-    color: var(--foreground);
-    margin-bottom: 1.5rem;
     line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(180deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .description {
     font-size: 1.25rem;
-    color: #8892b0;
+    color: #a8b2d1;
     line-height: 1.6;
-    margin-bottom: 2rem;
     max-width: 700px;
 }
 
-.meta {
+/* Metadata Bar */
+.metaBar {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     flex-wrap: wrap;
     gap: 2rem;
-    padding: 2rem 0;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tags {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .tag {
     color: var(--primary-orange);
     font-family: monospace;
     font-size: 0.9rem;
+    background: rgba(255, 159, 28, 0.08);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 159, 28, 0.15);
 }
 
 .links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
-.link {
-    display: flex;
+.linkButton {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--foreground);
-    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
     font-weight: 600;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    text-decoration: none;
 }
 
-.link:hover {
-    color: var(--primary-orange);
+.primaryLink {
+    background: var(--primary-orange);
+    color: #000;
 }
 
-.content {
+.primaryLink:hover {
+    background: #ffb042;
+    transform: translateY(-2px);
+}
+
+.secondaryLink {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondaryLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Featured Image */
+.imageContainer {
+    max-width: 1200px;
+    margin: 2rem auto 6rem;
+    padding: 0 2rem;
+}
+
+.imageFrame {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Main Content Grid */
+.contentGrid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
 }
 
-.section {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
+.sectionCard {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: 12px;
 }
 
 .sectionTitle {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.icon {
     color: var(--primary-orange);
-    font-family: monospace;
-    text-transform: uppercase;
 }
 
 .sectionText {
-    color: #ccc;
+    color: #9cb4cc;
+    line-height: 1.8;
     font-size: 1.1rem;
-    line-height: 1.7;
 }
 
-.roiSection {
-    background: rgba(255, 159, 28, 0.05);
-    border: 1px solid rgba(255, 159, 28, 0.1);
-    padding: 2rem;
-    border-radius: 8px;
-    grid-template-columns: 1fr;
+/* ROI Section */
+.roiContainer {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+    border: 1px solid rgba(255, 159, 28, 0.2);
+    border-radius: 12px;
+    padding: 4rem;
     text-align: center;
 }
 
-.roiTitle {
-    font-size: 1.5rem;
+.roiLabel {
     color: var(--primary-orange);
-    font-weight: 700;
+    font-family: monospace;
+    font-size: 1rem;
     margin-bottom: 1rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-.roiText {
-    font-size: 1.25rem;
-    color: var(--foreground);
-    font-weight: 500;
+.roiValue {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.3;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 6rem 1.5rem 2rem;
-    }
-
-    .title {
-        font-size: 2.5rem;
-    }
-
-    .section {
+/* Responsive */
+@media (max-width: 900px) {
+    .contentGrid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 2rem;
+    }
+
+    .hero {
+        padding-top: 6rem;
+    }
+
+    .sectionCard {
+        padding: 2rem;
     }
 }

@@ -20,8 +20,9 @@ export default function Navbar() {
             {/* Desktop Links */}
             <ul className={styles.links}>
                 <li><Link href="/" className={styles.link}>Home</Link></li>
-                <li><Link href="/#projetos" className={styles.link}>Projetos</Link></li>
                 <li><Link href="/#sobre" className={styles.link}>Sobre</Link></li>
+                <li><Link href="/#servicos" className={styles.link}>Serviços</Link></li>
+                <li><Link href="/#projetos" className={styles.link}>Projetos</Link></li>
             </ul>
 
             <Link href="#contato" className={styles.cta}>
@@ -45,8 +46,9 @@ export default function Navbar() {
                     >
                         <ul className={styles.mobileLinks}>
                             <li><Link href="/" onClick={toggleMenu}>Home</Link></li>
-                            <li><Link href="/#projetos" onClick={toggleMenu}>Projetos</Link></li>
                             <li><Link href="/#sobre" onClick={toggleMenu}>Sobre</Link></li>
+                            <li><Link href="/#servicos" onClick={toggleMenu}>Serviços</Link></li>
+                            <li><Link href="/#projetos" onClick={toggleMenu}>Projetos</Link></li>
                             <li><Link href="#contato" onClick={toggleMenu}>Contacte-me</Link></li>
                         </ul>
                     </motion.div>

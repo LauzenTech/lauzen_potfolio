@@ -1,0 +1,140 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 8rem 2rem 4rem;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #8892b0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: #171717;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--primary-orange);
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-5px);
+}
+
+.overlayLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: block;
+}
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.folderIcon {
+    font-size: 2.5rem;
+    color: var(--primary-orange);
+}
+
+.externalLinks {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.iconLink {
+    color: #8892b0;
+    font-size: 1.4rem;
+    transition: color 0.2s;
+}
+
+.iconLink:hover {
+    color: var(--primary-orange);
+}
+
+.projectTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.projectDesc {
+    color: #8892b0;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.tags {
+    display: flex;
+    gap: 0.8rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.readMore {
+    color: var(--primary-orange);
+    font-family: monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 6rem 1.5rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

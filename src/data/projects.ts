@@ -9,6 +9,7 @@ export interface Project {
     challenge: string;
     solution: string;
     roi: string;
+    image?: string; // Optional for now
 }
 
 export const projects: Project[] = [
@@ -22,7 +23,8 @@ export const projects: Project[] = [
         link: "#",
         challenge: "Criar uma experiência de chat fluida que lidasse com a latência das respostas de IA sem frustrar o utilizador.",
         solution: "Implementação de streaming de dados (Server-Sent Events) e atualizações optimistas na UI para feedback instantâneo.",
-        roi: "Aumento de 40% na retenção de utilizadores devido à melhoria na percepção de latência."
+        roi: "Aumento de 40% na retenção de utilizadores devido à melhoria na percepção de latência.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=AI+Chat+Interface&v=2"
     },
     {
         id: 2,
@@ -34,7 +36,8 @@ export const projects: Project[] = [
         link: "#",
         challenge: "Centralizar dados de múltiplas fontes dispersas num único painel de controlo em tempo real.",
         solution: "Arquitetura baseada em Supabase Realtime para sincronização instantânea de dados de vendas e inventário.",
-        roi: "Redução de 2 horas diárias no tempo de gestão de stocks da equipa operacional."
+        roi: "Redução de 2 horas diárias no tempo de gestão de stocks da equipa operacional.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=E-Commerce+Dashboard&v=2"
     },
     {
         id: 3,
@@ -46,7 +49,8 @@ export const projects: Project[] = [
         link: "#",
         challenge: "Garantir a funcionalidade em áreas com baixa conectividade sem perda de dados.",
         solution: "Implementação de base de dados local (SQLite) com sincronização em background quando online.",
-        roi: "Acessibilidade 100% garantida offline, aumentando o uso diário da app em 15%."
+        roi: "Acessibilidade 100% garantida offline, aumentando o uso diário da app em 15%.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Finance+App&v=2"
     },
     {
         id: 4,
@@ -58,7 +62,8 @@ export const projects: Project[] = [
         link: "#",
         challenge: "Inconsistência visual em diferentes produtos da empresa e lentidão no desenvolvimento de novas features.",
         solution: "Criação de uma biblioteca de componentes atómicos documentada e testada.",
-        roi: "Aceleração de 30% no desenvolvimento de novas interfaces e eliminação de inconsistências visuais."
+        roi: "Aceleração de 30% no desenvolvimento de novas interfaces e eliminação de inconsistências visuais.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Design+System&v=2"
     },
     {
         id: 5,
@@ -70,7 +75,8 @@ export const projects: Project[] = [
         link: "#",
         challenge: "Processos manuais propensos a erro humano e lentidão na aprovação de documentos.",
         solution: "Automatização de workflows com Firebase Functions e interface reativa.",
-        roi: "Redução de 80% nos erros de processamento manual."
+        roi: "Redução de 80% nos erros de processamento manual.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Project+Alpha&v=2"
     },
     {
         id: 6,
@@ -82,6 +88,7 @@ export const projects: Project[] = [
         link: "#",
         challenge: "Apresentar trabalhos anteriores de forma criativa sem utilizar frameworks pesados.",
         solution: "Site estático otimizado com animações GSAP leves.",
-        roi: "Tempo de carregamento inferior a 1s e alta pontuação no Lighthouse."
+        roi: "Tempo de carregamento inferior a 1s e alta pontuação no Lighthouse.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Portfolio+v1&v=2"
     }
 ];
