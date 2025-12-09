@@ -50,10 +50,22 @@ export default function RetroBackground() {
         const interval = setInterval(draw, 33);
 
         const handleResize = () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
+            // Only resize if width changes (ignores mobile address bar height change)
+            if (window.innerWidth !== width) {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+
+                // Re-initialize columns
+                const newColumns = width / fontSize;
+                // Preserve existing drops if possible or reset
+                if (newColumns > columns) {
+                    for (let i = Math.floor(columns); i < newColumns; i++) {
+                        drops[i] = 1;
+                    }
+                }
+            }
         };
 
         window.addEventListener('resize', handleResize);

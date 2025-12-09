@@ -37,17 +37,27 @@
 /* Updated Card Styles */
 .card {
     background: #171717;
-    /* Sligtly lighter than absolute black */
     border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Subtle border */
     border-radius: 6px;
     padding: 2rem 1.75rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    cursor: default;
-    /* Logic is in links now */
+    cursor: pointer;
+    /* Restored cursor */
+    position: relative;
+    /* Essential for overlay */
+}
+
+.overlayLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Lowest Interactive Layer */
 }
 
 .card:hover {
@@ -79,6 +89,9 @@
     font-size: 22px;
     transition: color 0.2s ease;
     cursor: pointer;
+    z-index: 10;
+    /* Bring above overlay */
+    position: relative;
 }
 
 .iconLink:hover {

@@ -12,8 +12,8 @@ export default function ProjectsGrid() {
             <div className={styles.header}>
                 <motion.h2
                     className={styles.title}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
@@ -30,39 +30,46 @@ export default function ProjectsGrid() {
 
             <div className={styles.grid}>
                 {projects.map((project, index) => (
-                    <Link href={`/projetos/${project.slug}`} key={project.id} style={{ textDecoration: 'none' }}>
-                        <motion.div
-                            className={styles.card}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ y: -8 }}
-                        >
-                            <div className={styles.cardHeader}>
-                                <div className={styles.folderIcon}>
-                                    <FiFolder />
-                                </div>
-                                <div className={styles.links}>
-                                    <div className={styles.iconLink} onClick={(e) => e.stopPropagation()} title="GitHub">
-                                        <a href={project.github}><FiGithub /></a>
-                                    </div>
-                                    <div className={styles.iconLink} onClick={(e) => e.stopPropagation()} title="External Link">
-                                        <a href={project.link}><FiExternalLink /></a>
-                                    </div>
-                                </div>
-                            </div>
+                    <motion.div
+                        key={project.id}
+                        className={styles.card}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        whileHover={{ y: -8 }}
+                    >
+                        {/* Overlay Link for Main Card Action */}
+                        <Link
+                            href={`/projetos/${project.slug}`}
+                            className={styles.overlayLink}
+                            aria-label={`View project ${project.title}`}
+                        />
 
-                            <h3 className={styles.projectTitle}>{project.title}</h3>
-                            <p className={styles.projectDesc}>{project.description}</p>
-
-                            <div className={styles.tags}>
-                                {project.tags.map(tag => (
-                                    <span key={tag}>{tag}</span>
-                                ))}
+                        <div className={styles.cardHeader}>
+                            <div className={styles.folderIcon}>
+                                <FiFolder />
                             </div>
-                        </motion.div>
-                    </Link>
+                            <div className={styles.links}>
+                                {/* Separate z-indexed links */}
+                                <a href={project.github} className={styles.iconLink} title="GitHub" target="_blank" rel="noopener noreferrer">
+                                    <FiGithub />
+                                </a>
+                                <a href={project.link} className={styles.iconLink} title="External Link" target="_blank" rel="noopener noreferrer">
+                                    <FiExternalLink />
+                                </a>
+                            </div>
+                        </div>
+
+                        <h3 className={styles.projectTitle}>{project.title}</h3>
+                        <p className={styles.projectDesc}>{project.description}</p>
+
+                        <div className={styles.tags}>
+                            {project.tags.map(tag => (
+                                <span key={tag}>{tag}</span>
+                            ))}
+                        </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

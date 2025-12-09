@@ -37,7 +37,7 @@ body {
    or keep it simple on the body for now. */
 body::after {
   content: '';
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;

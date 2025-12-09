@@ -23,10 +23,16 @@
 }
 
 /* Constrain direct children (Sections) to restore original layout */
-.main>* {
+.main>*:not(:last-child) {
   width: 100%;
   max-width: 1200px;
   /* Original design constraint */
+}
+
+/* Footer should be full width */
+.main> :last-child {
+  width: 100%;
+  max-width: 100%;
 }
 
 .title {
