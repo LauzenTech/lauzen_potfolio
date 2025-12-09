@@ -2,20 +2,31 @@
 .page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  gap: 2rem;
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
   flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  /* Centers the children horizontally */
+}
+
+/* Constrain direct children (Sections) to restore original layout */
+.main>* {
+  width: 100%;
+  max-width: 1200px;
+  /* Original design constraint */
 }
 
 .title {

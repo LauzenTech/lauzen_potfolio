@@ -13,7 +13,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
             >
-                04. E agora?
+                05. E agora?
             </motion.p>
 
             <motion.h2

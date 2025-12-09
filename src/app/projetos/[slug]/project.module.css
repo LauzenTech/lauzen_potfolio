@@ -1,0 +1,140 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 8rem 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.backLink {
+    color: var(--primary-orange);
+    font-family: monospace;
+    margin-bottom: 2rem;
+    display: inline-block;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.backLink:hover {
+    transform: translateX(-5px);
+}
+
+.header {
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #8892b0;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tag {
+    color: var(--primary-orange);
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--foreground);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: var(--primary-orange);
+}
+
+.content {
+    display: grid;
+    gap: 4rem;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.sectionTitle {
+    font-size: 1.1rem;
+    color: var(--primary-orange);
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+.sectionText {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.roiSection {
+    background: rgba(255, 159, 28, 0.05);
+    border: 1px solid rgba(255, 159, 28, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.roiTitle {
+    font-size: 1.5rem;
+    color: var(--primary-orange);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.roiText {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

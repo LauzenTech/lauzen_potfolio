@@ -5,6 +5,7 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <main className={styles.main}>
         <Hero />
         <About />
+        <Services />
         <TechStack />
         <ProjectsGrid />
         <Contact />
