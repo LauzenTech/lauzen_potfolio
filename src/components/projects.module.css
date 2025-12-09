@@ -1,0 +1,122 @@
+.section {
+    padding: 6rem 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.line {
+    height: 1px;
+    background: var(--grid-line);
+    flex: 1;
+    margin-left: 2rem;
+    max-width: 300px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Updated Card Styles */
+.card {
+    background: #171717;
+    /* Sligtly lighter than absolute black */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border */
+    border-radius: 6px;
+    padding: 2rem 1.75rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: default;
+    /* Logic is in links now */
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--primary-orange);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.folderIcon {
+    color: var(--primary-orange);
+    font-size: 40px;
+}
+
+.links {
+    display: flex;
+    gap: 15px;
+    color: #8892b0;
+}
+
+.iconLink {
+    color: #a8b2d1;
+    font-size: 22px;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.iconLink:hover {
+    color: var(--primary-orange);
+}
+
+.projectTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+    transition: color 0.2s;
+}
+
+.card:hover .projectTitle {
+    color: var(--primary-orange);
+}
+
+.projectDesc {
+    font-size: 1rem;
+    color: #8892b0;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.tags {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #8892b0;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 2rem;
+    }
+}
