@@ -10,6 +10,7 @@ export interface Project {
     solution: string;
     roi: string;
     image?: string; // Optional for now
+    video?: string; // Optional video URL
 }
 
 export const projects: Project[] = [
@@ -28,43 +29,20 @@ export const projects: Project[] = [
     },
     {
         id: 2,
-        slug: "ecommerce-dashboard",
-        title: "E-Commerce Dashboard",
-        description: "Painel administrativo completo para gestão de vendas e stocks com gráficos em tempo real utilizando Supabase.",
-        tags: ["React", "Chart.js", "Supabase"],
+        slug: "ecommerce-genai-curation",
+        title: "E-Commerce de Curadoria com GenAI",
+        description: "Eu me perguntei: E se o software entendesse a minha intenção, em vez de apenas a minha palavra-chave? Construí uma PoC invertendo a lógica tradicional do e-commerce.",
+        tags: ["Vite", "Google AI Studio", "Gemini API", "DummyJSON"],
         github: "#",
         link: "#",
-        challenge: "Centralizar dados de múltiplas fontes dispersas num único painel de controlo em tempo real.",
-        solution: "Arquitetura baseada em Supabase Realtime para sincronização instantânea de dados de vendas e inventário.",
-        roi: "Redução de 2 horas diárias no tempo de gestão de stocks da equipa operacional.",
-        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=E-Commerce+Dashboard&v=2"
+        challenge: "O fardo da curadoria é do usuário: caçar item por item e torcer para tudo combinar numa ocasião especial.",
+        solution: "Um e-commerce inteligente onde o Gemini atua como 'cérebro' para entender a intenção humana e orquestrar um carrinho de compras completo.",
+        roi: "O papel do dev moderno não é apenas entregar telas, mas desenhar sistemas que tomam decisões inteligentes para o negócio e o usuário.",
+        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=E-Commerce+Dashboard&v=2",
+        video: "/ecommerce_video.mp4"
     },
-    {
-        id: 3,
-        slug: "finance-tracker-app",
-        title: "Finance Tracker App",
-        description: "Aplicação mobile-first para controlo de finanças pessoais e objetivos de poupança, com modo offline.",
-        tags: ["React Native", "Expo", "Node.js"],
-        github: "#",
-        link: "#",
-        challenge: "Garantir a funcionalidade em áreas com baixa conectividade sem perda de dados.",
-        solution: "Implementação de base de dados local (SQLite) com sincronização em background quando online.",
-        roi: "Acessibilidade 100% garantida offline, aumentando o uso diário da app em 15%.",
-        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Finance+App&v=2"
-    },
-    {
-        id: 4,
-        slug: "design-system-library",
-        title: "Design System Library",
-        description: "Biblioteca de componentes reutilizáveis documentada com Storybook, garantindo consistência visual.",
-        tags: ["CSS Modules", "Storybook", "A11y"],
-        github: "#",
-        link: "#",
-        challenge: "Inconsistência visual em diferentes produtos da empresa e lentidão no desenvolvimento de novas features.",
-        solution: "Criação de uma biblioteca de componentes atómicos documentada e testada.",
-        roi: "Aceleração de 30% no desenvolvimento de novas interfaces e eliminação de inconsistências visuais.",
-        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Design+System&v=2"
-    },
+
+
     {
         id: 5,
         slug: "project-alpha",
@@ -78,17 +56,18 @@ export const projects: Project[] = [
         roi: "Redução de 80% nos erros de processamento manual.",
         image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Project+Alpha&v=2"
     },
+
     {
-        id: 6,
-        slug: "portfolio-v1",
-        title: "Portfolio v1",
-        description: "Primeira versão do meu portfólio pessoal, com animações personalizadas.",
-        tags: ["HTML", "CSS", "GSAP"],
+        id: 7,
+        slug: "hydrosync",
+        title: "HydroSync",
+        description: "Plataforma AgriTech para gestão agrícola com base em IoT. Monitoriza recursos, prevê culturas e apresenta mapas interativos em tempo real.",
+        tags: ["React", "Python", "PostgreSQL", "DeepSeek AI"],
         github: "#",
-        link: "#",
-        challenge: "Apresentar trabalhos anteriores de forma criativa sem utilizar frameworks pesados.",
-        solution: "Site estático otimizado com animações GSAP leves.",
-        roi: "Tempo de carregamento inferior a 1s e alta pontuação no Lighthouse.",
-        image: "https://placehold.co/1200x600/171717/FF9F1C.png?text=Portfolio+v1&v=2"
+        link: "https://hydrosync-frontend.onrender.com/index.html",
+        challenge: "Criar uma solução eficiente para otimização de consumos (água e energia) e tomada de decisão preditiva suportada por GenAI.",
+        solution: "Dashboard mobile-first com integração de mapa local, relatórios detalhados e um chatbot AI com histórico e previsão de culturas.",
+        roi: "Apresentado e estruturado para o Timbuktoo AgriTech Hackathon, resultando num MVP completo focado na sustentabilidade.",
+        image: "/hydrosync.png"
     }
 ];

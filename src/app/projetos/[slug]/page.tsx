@@ -65,8 +65,8 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     </motion.div>
                 </div>
 
-                {/* Featured Image - Robust Rendering */}
-                {project.image && (
+                {/* Featured Media - Robust Rendering */}
+                {(project.video || project.image) && (
                     <motion.div
                         className={styles.imageContainer}
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -74,11 +74,23 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                         transition={{ delay: 0.4, duration: 0.8 }}
                     >
                         <div className={styles.imageFrame}>
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className={styles.projectImage}
-                            />
+                            {project.video ? (
+                                <video
+                                    src={project.video}
+                                    controls
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className={styles.projectImage}
+                                />
+                            ) : (
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className={styles.projectImage}
+                                />
+                            )}
                         </div>
                     </motion.div>
                 )}
