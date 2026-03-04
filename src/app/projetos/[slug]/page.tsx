@@ -123,7 +123,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                         </h2>
                         <p className={styles.sectionText}>{project.solution}</p>
                     </motion.section>
-
+ 
                     {/* ROI Banner */}
                     <motion.div
                         className={styles.roiContainer}
