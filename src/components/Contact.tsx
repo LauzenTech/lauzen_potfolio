@@ -31,7 +31,7 @@ export default function Contact() {
 
 
             <motion.blockquote
-                style={{ fontStyle: 'italic', color: '#f4f4f5', fontSize: '1.8rem', maxWidth: '800px', margin: '3rem auto 4rem', textAlign: 'center', lineHeight: '1.5', fontWeight: '500' }}
+                className={styles.quoteBlock}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

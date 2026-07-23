@@ -50,6 +50,10 @@
     transform: translateY(-2px);
 }
 
+.mobileBtn {
+    display: none;
+}
+
 .servicesList {
     display: flex;
     flex-direction: column;
@@ -120,6 +124,15 @@
     .header {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .desktopBtn {
+        display: none;
+    }
+
+    .mobileBtn {
+        display: inline-flex;
+        margin-top: 1rem;
     }
 
     .serviceRow {

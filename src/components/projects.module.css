@@ -169,6 +169,15 @@
     }
     
     .section {
-        padding: 4rem 2rem;
+        padding: 4rem 1.5rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .header p {
+        font-size: 1rem !important;
+        margin-top: 0.5rem !important;
     }
 }

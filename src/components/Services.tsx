@@ -48,14 +48,11 @@ export default function Services() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         style={{ marginTop: '1.5rem', whiteSpace: 'pre-line' }}
                     >
-                        Antes de construir soluções, procuro compreender sistemas.{"\n\n"}
-                        Não acredito que grandes projetos nasçam apenas de boas ideias.{"\n"}
-                        Acredito que nascem de uma sequência de decisões bem tomadas.{"\n"}
-                        É essa sequência que procuro seguir em todos os projetos.
+                        Grandes projetos não nascem apenas de boas ideias, mas da compreensão profunda de sistemas e de uma sequência de decisões bem tomadas.
                     </motion.p>
                 </div>
 
-                <Link href="#contato" className={styles.quoteButton}>
+                <Link href="#contato" className={`${styles.quoteButton} ${styles.desktopBtn}`}>
                     Fale comigo <FiArrowUpRight />
                 </Link>
             </div>
@@ -80,6 +77,10 @@ export default function Services() {
                     </motion.div>
                 ))}
             </div>
+
+            <Link href="#contato" className={`${styles.quoteButton} ${styles.mobileBtn}`}>
+                Fale comigo <FiArrowUpRight />
+            </Link>
         </section>
     );
 }
