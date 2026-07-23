@@ -254,7 +254,7 @@ export default function Hero() {
             >
                 <div className={styles.overlay}></div>
                 <Image 
-                    src="/capa.gif" 
+                    src="/capa.webp" 
                     alt="Hero Background" 
                     fill
                     className={styles.heroImage}

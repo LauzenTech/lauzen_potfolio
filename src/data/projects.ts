@@ -26,7 +26,7 @@ export const projects: Project[] = [
         challenge: "Na Blend, participei como desenvolvedor na criação de uma plataforma web para o Banco BFA, destinada ao registo e monitorização dos cartazes promocionais distribuídos pelas agências.",
         solution: "O sistema centraliza as informações das campanhas, facilita o acompanhamento da sua implementação e melhora o controlo operacional através de uma gestão mais organizada e segura dos dados.",
         roi: "Contributo: Desenvolvimento frontend e backend de funcionalidades da plataforma.",
-        image: "/bfa.png"
+        image: "/bfa.webp"
     },
 
     {
@@ -40,7 +40,7 @@ export const projects: Project[] = [
         challenge: "Criar uma solução tecnológica capaz de apoiar agricultores na otimização de água, energia e previsão de culturas com base em dados.",
         solution: "Dashboard mobile-first com mapas, relatórios, histórico e chatbot com IA para apoiar decisões agrícolas de forma simples.",
         roi: "Projeto apresentado no Timbuktoo AgriTech Hackathon, nos Estados Unidos, como MVP focado em sustentabilidade, inovação e impacto social.",
-        image: "/hydrosync.png"
+        image: "/hydrosync.webp"
     },
     {
         id: 8,
@@ -53,7 +53,7 @@ export const projects: Project[] = [
         challenge: "Como apresentar serviços e infraestruturas de forma corporativa e moderna na web?",
         solution: "Desenvolvimento de um website focado em destacar a credibilidade, serviços e o portfólio da empresa.",
         roi: "Criação de uma forte presença digital para captação de clientes corporativos.",
-        image: "/wasi.png"
+        image: "/wasi.webp"
     },
     {
         id: 9,
@@ -66,7 +66,7 @@ export const projects: Project[] = [
         challenge: "Como traduzir a metodologia, experiência e impacto de um coach numa plataforma digital própria?",
         solution: "Criação de um website focado em construir autoridade, expor serviços e atrair novos mentorados.",
         roi: "Centralização da comunicação e facilitação do contacto direto com clientes.",
-        image: "/dardano.png"
+        image: "/dardano.webp"
     },
     {
         id: 10,
@@ -79,7 +79,7 @@ export const projects: Project[] = [
         challenge: "Como comunicar o valor ambiental e atrair o turismo ecológico para uma reserva natural?",
         solution: "Uma plataforma digital que imerge o visitante na biodiversidade e nas iniciativas de conservação do espaço.",
         roi: "Expansão da visibilidade internacional da reserva e maior facilidade na atração de visitantes e parceiros.",
-        image: "/cuatir.png"
+        image: "/cuatir.webp"
     },
     {
         id: 2,
@@ -92,7 +92,7 @@ export const projects: Project[] = [
         challenge: "Reduzir o esforço de escolha do utilizador, que normalmente precisa procurar item por item até formar uma compra coerente.",
         solution: "Um e-commerce inteligente onde o Gemini interpreta contexto, ocasião e intenção para montar recomendações completas.",
         roi: "Mostra como software pode deixar de ser apenas interface e passar a atuar como parceiro criativo na tomada de decisão.",
-        image: "/guga.png",
+        image: "/guga.webp",
         video: "/ecommerce_video.mp4"
     }
 ];
