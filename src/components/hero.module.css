@@ -26,6 +26,20 @@
     height: 100%;
     z-index: 0;
     pointer-events: none;
+    /* Efeito de Lanterna */
+    -webkit-mask-image: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,0,0,1) 0%, rgba(0,0,0,0.35) 100%);
+    mask-image: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,0,0,1) 0%, rgba(0,0,0,0.35) 100%);
+    transition: -webkit-mask-image 0.2s ease, mask-image 0.2s ease;
+}
+
+.particlesCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Acima do fundo, mas abaixo do texto */
+    pointer-events: none;
 }
 
 .overlay {
@@ -34,14 +48,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0.4) 100%);
+    /* Reduzido drasticamente para não esconder a imagem */
+    background: linear-gradient(to right, rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0.1) 100%);
     z-index: 1;
 }
 
 .heroImage {
     object-fit: cover;
     z-index: 0;
-    filter: grayscale(20%);
+    /* Removido o filtro grayscale para a imagem ter 100% de cor e brilho */
 }
 
 .greeting {

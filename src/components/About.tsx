@@ -51,7 +51,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                Não desenvolvo software. Desenvolvo mudanças.
+                Não desenvolvo software, Desenvolvo mudanças.
                 <span className={styles.line}></span>
             </motion.h2>
 
