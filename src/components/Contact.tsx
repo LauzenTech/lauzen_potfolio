@@ -11,12 +11,12 @@ export default function Contact() {
     return (
         <section id="contato" className={styles.section}>
             <motion.p
-                style={{ color: 'var(--primary-orange)', fontFamily: 'monospace', marginBottom: '1rem' }}
+                style={{ color: 'var(--primary-orange)', fontFamily: 'monospace', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
             >
-                05. E agora?
+                A minha filosofia
             </motion.p>
 
             <motion.h2
@@ -26,20 +26,19 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
             >
-                Vamos Conversar
+                O Impacto Invisível
             </motion.h2>
 
-            <motion.p
-                className={styles.text}
+
+            <motion.blockquote
+                style={{ fontStyle: 'italic', color: '#f4f4f5', fontSize: '1.8rem', maxWidth: '800px', margin: '3rem auto 4rem', textAlign: 'center', lineHeight: '1.5', fontWeight: '500' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
             >
-                Estou sempre disponível para novas oportunidades e parcerias estratégicas.
-                Se tiver um projeto em mente ou quiser discutir como optimizar o seu negócio através da tecnologia,
-                a minha caixa de entrada está aberta.
-            </motion.p>
+                "As melhores soluções não começam quando alguém escreve a primeira linha de código. Começam quando alguém faz a pergunta certa."
+            </motion.blockquote>
 
             <motion.button
                 onClick={() => setIsModalOpen(true)}
@@ -47,9 +46,9 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.4 }}
             >
-                Diga Olá
+                Vamos Conversar
             </motion.button>
 
             <AnimatePresence>

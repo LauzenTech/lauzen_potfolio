@@ -22,11 +22,10 @@
   /* Centers the children horizontally */
 }
 
-/* Constrain direct children (Sections) to restore original layout */
-.main>*:not(:last-child) {
+/* Constrain direct children (Sections) except Hero */
+.main>*:not(:first-child):not(:last-child) {
   width: 100%;
-  max-width: 1200px;
-  /* Original design constraint */
+  max-width: 1440px;
 }
 
 /* Footer should be full width */

@@ -1,9 +1,11 @@
 "use client";
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './hero.module.css';
-import RetroBackground from './RetroBackground';
+
 
 const sentence = {
     hidden: { opacity: 1 },
@@ -71,46 +73,78 @@ const TypewriterParagraph = ({ text, className }: { text: string, className?: st
 };
 
 export default function Hero() {
+    const [titleIndex, setTitleIndex] = useState(0);
+    const titles = [
+        "Engenheiro Informático.", 
+        "Engenheiro Criativo.",
+        "Engenheiro de Soluções.",
+        "Engenheiro de Impacto."
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [titles.length]);
+
     return (
         <section className={styles.hero}>
-            <RetroBackground />
             <div className={styles.contentWrapper}>
 
                 <div className={styles.greeting}>
-                    <TypewriterText text="Olá, o meu nome é" />
+                    <TypewriterText text="Ladislau Piedoso Borges" />
                 </div>
 
                 <h1 className={styles.headline}>
-                    <TypewriterText text="Ladislau Piedoso Borges." />
+                    <AnimatePresence mode="wait">
+                        <motion.span
+                            key={titleIndex}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.5 }}
+                            style={{ display: 'inline-block', minWidth: '300px' }}
+                        >
+                            {titles[titleIndex]}
+                        </motion.span>
+                    </AnimatePresence>
                 </h1>
-
-                <h2 className={styles.subheadline}>
-                    <TypewriterText text="Desenvolvedor de Software Orientado ao Negócio." />
-                </h2>
 
                 {/* Description and buttons fade in normally to not be annoying */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 3, duration: 1 }}
+                    transition={{ delay: 2, duration: 1 }}
                 >
                     <p className={styles.description}>
-                        Vou além do código: traduzo metas estratégicas em soluções técnicas com alto
-                        <strong style={{ color: 'var(--foreground)' }}> ROI</strong>.
-                        Foco em <strong style={{ color: 'var(--foreground)' }}>MVP</strong> e priorização por valor,
-                        garantindo que cada funcionalidade impulsione o crescimento do seu negócio.
+                        As melhores soluções não começam com código.<br />
+                        Começam quando alguém faz a pergunta certa.
                     </p>
 
                     <div className={styles.buttons}>
-                        <Link href="#projetos" className={styles.primaryBtn}>
-                            Ver o meu trabalho
-                        </Link>
-                        <Link href="#contato" className={styles.secondaryBtn}>
-                            Contacte-me
+                        <Link href="#sobre" className={styles.primaryBtn}>
+                            Descobrir a minha forma de pensar
                         </Link>
                     </div>
                 </motion.div>
             </div>
+            
+            <motion.div 
+                className={styles.imageBackground}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.3 }}
+                transition={{ duration: 2 }}
+            >
+                <div className={styles.overlay}></div>
+                <Image 
+                    src="/capa.gif" 
+                    alt="Hero Background" 
+                    fill
+                    className={styles.heroImage}
+                    unoptimized
+                />
+            </motion.div>
         </section>
     );
 }

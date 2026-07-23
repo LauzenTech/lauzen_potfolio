@@ -1,16 +1,28 @@
 /* Navbar Styles */
 .navbar {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    padding: 1.5rem 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(18, 18, 18, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+
+.scrolled {
+    background: rgba(18, 18, 18, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
 .logo {
@@ -47,9 +59,9 @@
 }
 
 .cta {
-    padding: 0.5rem 1.2rem;
-    border: 1px solid var(--primary-orange);
+    padding: 0.5rem 1rem;
     color: var(--primary-orange);
+    border: 1px solid var(--primary-orange);
     border-radius: 4px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -59,8 +71,8 @@
 }
 
 .cta:hover {
-    background: var(--primary-orange);
-    color: #000;
+    background-color: rgba(255, 159, 28, 0.1);
+    opacity: 1;
 }
 
 .mobileToggle {

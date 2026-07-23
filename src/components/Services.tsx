@@ -1,65 +1,82 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { FiTarget, FiTrendingUp, FiMonitor } from 'react-icons/fi';
+import Link from 'next/link';
+import { FiArrowUpRight } from 'react-icons/fi';
 import styles from './services.module.css';
 
 const services = [
     {
-        icon: FiTarget,
-        title: "Desenvolvimento de MVP",
-        description: "Transformo ideias em produtos viáveis rapidamente. Foco no 'Time-to-Market' para validar hipóteses de negócio com o menor custo e maior impacto possível."
+        title: "Compreender",
+        description: "Toda solução começa por ouvir. Antes de pensar em funcionalidades, procuro perceber como as pessoas trabalham, onde existem obstáculos e que mudança realmente faz sentido criar."
     },
     {
-        icon: FiTrendingUp,
-        title: "Consultoria Estratégica",
-        description: "Alinhamento entre tecnologia e objetivos comerciais. Ajudo a identificar gargalos, otimizar processos e escolher as ferramentas certas para escalar a sua operação."
+        title: "Estruturar",
+        description: "Ideias tornam-se valiosas quando deixam de ser abstratas. Transformo problemas complexos em estratégias claras, priorizando aquilo que gera maior impacto."
     },
     {
-        icon: FiMonitor,
-        title: "Web Apps & Dashboards",
-        description: "Criação de painéis administrativos, SaaS e sistemas internos complexos. Interfaces intuitivas que facilitam a gestão do negócio e aumentam a produtividade."
+        title: "Construir",
+        description: "Só depois de compreender e estruturar é que a tecnologia entra. Cada linha de código deve aproximar o projeto do objetivo, nunca afastá-lo."
+    },
+    {
+        title: "Evoluir",
+        description: "Um produto nunca termina quando é lançado. Os melhores sistemas aprendem, adaptam-se e evoluem juntamente com quem os utiliza."
     }
 ];
 
 export default function Services() {
     return (
-        <section id="servicos" className={styles.section}>
+        <section id="abordagem" className={styles.section}>
             <div className={styles.header}>
-                <motion.h2
-                    className={styles.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <span style={{ color: 'var(--primary-orange)' }}>03.</span> Serviços
-                </motion.h2>
-                <motion.div
-                    className={styles.line}
-                    initial={{ scaleX: 0, originX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                ></motion.div>
+                <div>
+                    <motion.h2
+                        className={styles.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+                    >
+                        <span style={{ fontSize: '1rem', color: 'var(--primary-orange)', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'monospace' }}>Como penso</span>
+                        Antes do código
+                    </motion.h2>
+                    <motion.p
+                        className={styles.subtitle}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        style={{ marginTop: '1.5rem', whiteSpace: 'pre-line' }}
+                    >
+                        Antes de construir soluções, procuro compreender sistemas.{"\n\n"}
+                        Não acredito que grandes projetos nasçam apenas de boas ideias.{"\n"}
+                        Acredito que nascem de uma sequência de decisões bem tomadas.{"\n"}
+                        É essa sequência que procuro seguir em todos os projetos.
+                    </motion.p>
+                </div>
+
+                <Link href="#contato" className={styles.quoteButton}>
+                    Fale comigo <FiArrowUpRight />
+                </Link>
             </div>
 
-            <div className={styles.grid}>
+            <div className={styles.servicesList}>
                 {services.map((service, index) => (
                     <motion.div
-                        key={index}
-                        className={styles.card}
-                        initial={{ opacity: 0, y: 30 }}
+                        key={service.title}
+                        className={styles.serviceRow}
+                        initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        whileHover={{ y: -5 }}
                     >
-                        <div className={styles.icon}>
-                            <service.icon />
-                        </div>
-                        <h3 className={styles.serviceTitle}>{service.title}</h3>
+                        <h3 className={styles.serviceTitle}>
+                            <span>{String(index + 1).padStart(2, '0')}.</span>{service.title}
+                        </h3>
                         <p className={styles.serviceDesc}>{service.description}</p>
+                        <Link href="#contato" className={styles.rowAction} aria-label={`Contactar sobre ${service.title}`}>
+                            <FiArrowUpRight />
+                        </Link>
                     </motion.div>
                 ))}
             </div>

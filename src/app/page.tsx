@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Navbar />
-      <main className={styles.main}>
+      <main id="main-scroll" className={styles.main}>
         <Hero />
         <About />
         <Services />

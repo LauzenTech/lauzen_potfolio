@@ -14,7 +14,7 @@ export default function ProjectsIndex() {
     return (
         <div className={pageStyles.page}>
             <Navbar />
-            <div className={pageStyles.main}>
+            <div id="main-scroll" className={pageStyles.main}>
                 <div className={styles.container}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

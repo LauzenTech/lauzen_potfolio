@@ -1,18 +1,35 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import styles from './navbar.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const mainEl = document.getElementById('main-scroll');
+
+        const handleScroll = () => {
+            const scrollTop = mainEl ? mainEl.scrollTop : window.scrollY;
+            setScrolled(scrollTop > 24);
+        };
+
+        handleScroll();
+
+        const scrollTarget = mainEl ?? window;
+        scrollTarget.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => scrollTarget.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={styles.logo}>
                 Lauzen<span>.</span>
             </div>

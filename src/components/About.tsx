@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './about.module.css';
 
-// Component to handle counting animation
+// Component to handle counting animation1
 function Counter({ value }: { value: string }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -51,7 +51,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <span style={{ color: 'var(--primary-orange)' }}>02.</span> Sobre Mim
+                Não desenvolvo software. Desenvolvo mudanças.
                 <span className={styles.line}></span>
             </motion.h2>
 
@@ -64,26 +64,23 @@ export default function About() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     <p>
-                        A minha missão é construir software eficiente que <span className={styles.highlight}>resolva as dificuldades do cliente</span> e
-                        traga resultados tangíveis para a organização. Não entrego apenas código; entrego soluções de negócio.
+                        Toda tecnologia resolve alguma coisa. Mas a verdadeira questão nunca foi a tecnologia. Foi sempre o <span className={styles.highlight}>impacto que ela é capaz de criar</span>.
                     </p>
                     <p>
-                        Com uma abordagem focada em <strong>ROI</strong> (Retorno sobre Investimento), priorizo funcionalidades que trazem valor real
-                        desde o primeiro dia. Acredito na metodologia MVP para validar hipóteses rapidamente e escalar com segurança.
+                        É por isso que não começo pelos frameworks, pelas linguagens ou pelas funcionalidades. Começo por compreender o problema. Porque quando entendemos profundamente um desafio, a tecnologia deixa de ser protagonista. Passa a ser apenas a ferramenta que torna a mudança possível.
                     </p>
                     <p>
-                        Seja a liderar equipas técnicas ou a desenvolver arquiteturas complexas, o meu objetivo é sempre o mesmo:
-                        conectar a tecnologia aos objetivos estratégicos da empresa.
+                        Não procuro construir aplicações. Procuro criar soluções que simplificam decisões, aproximam pessoas e ajudam organizações a evoluir.
                     </p>
                 </motion.div>
 
                 <div className={styles.statsGrid}>
                     {/* Animated Stats */}
                     {[
-                        { label: 'Foco em Resultados', value: 'ROI' },
-                        { label: 'Entrega Contínua', value: 'MVP' },
-                        { label: 'Anos de Exp.', value: '+5' },
-                        { label: 'Comprometimento', value: '100%' }
+                        { label: 'Toda mudança começa com uma boa pergunta.', value: 'IDEIA' },
+                        { label: 'Criatividade só gera valor quando pode ser executada.', value: 'ENGENHARIA' },
+                        { label: 'Uma solução vale pela transformação que provoca.', value: 'IMPACTO' },
+                        { label: 'Nenhum produto termina no lançamento.', value: 'EVOLUÇÃO' }
                     ].map((stat, index) => (
                         <motion.div
                             key={index}

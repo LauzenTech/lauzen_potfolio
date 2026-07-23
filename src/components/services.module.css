@@ -1,79 +1,166 @@
 .section {
-    padding: 6rem 10%;
+    padding: 7rem 5%;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.01);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
 }
 
 .header {
     display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--foreground);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.line {
-    height: 1px;
-    background: var(--grid-line);
-    flex: 1;
-    margin-left: 2rem;
-    max-width: 300px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: flex-end;
+    justify-content: space-between;
     gap: 2rem;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-orange);
-    background: rgba(255, 159, 28, 0.05);
-}
-
-.icon {
-    font-size: 2.5rem;
+.title {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    font-weight: 800;
+    line-height: 1;
     color: var(--primary-orange);
-    margin-bottom: 1.5rem;
-}
-
-.serviceTitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--foreground);
     margin-bottom: 1rem;
 }
 
-.serviceDesc {
-    font-size: 1rem;
-    color: #8892b0;
-    line-height: 1.6;
+.subtitle {
+    color: #a8b2d1;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 520px;
 }
 
-@media (max-width: 768px) {
+.quoteButton {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.8rem 1.25rem;
+    border-radius: 4px;
+    background: var(--primary-orange);
+    color: #121212;
+    font-size: 0.9rem;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.quoteButton:hover {
+    background: #ffb84d;
+    transform: translateY(-2px);
+}
+
+.servicesList {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.serviceRow {
+    min-height: 96px;
+    display: grid;
+    grid-template-columns: minmax(230px, 0.9fr) minmax(260px, 1fr) 44px;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.25rem 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.2s ease, padding-inline 0.2s ease;
+}
+
+.serviceRow:hover {
+    background: rgba(255, 159, 28, 0.045);
+    padding-inline: 1rem;
+}
+
+.serviceTitle {
+    color: var(--foreground);
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.25;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1rem;
+}
+
+.serviceTitle span {
+    color: var(--foreground);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.95em;
+}
+
+.serviceDesc {
+    color: #727b96;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    max-width: 460px;
+}
+
+.rowAction {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    color: var(--foreground);
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.rowAction:hover {
+    color: #121212;
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+    transform: translate(2px, -2px);
+}
+
+@media (max-width: 900px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .serviceRow {
+        grid-template-columns: 1fr 40px;
+        gap: 0.75rem 1rem;
+        padding: 1.5rem 0;
+    }
+
+    .serviceTitle,
+    .serviceDesc {
+        grid-column: 1;
+    }
+
+    .rowAction {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+}
+
+@media (max-width: 600px) {
     .section {
-        padding: 4rem 2rem;
+        padding: 5rem 1.5rem;
+        gap: 2.5rem;
+    }
+
+    .title {
+        font-size: 2.55rem;
+    }
+
+    .quoteButton {
+        width: 100%;
+    }
+
+    .serviceRow {
+        grid-template-columns: 1fr;
+    }
+
+    .rowAction {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: start;
     }
 }

@@ -1,5 +1,5 @@
 .section {
-    padding: 6rem 10%;
+    padding: 6rem 5%;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -30,24 +30,22 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
 /* Updated Card Styles */
 .card {
-    background: #171717;
+    background: #18181b; /* Dark grey close to the image */
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
-    padding: 2rem 1.75rem;
+    border-radius: 12px;
+    padding: 1rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
-    /* Restored cursor */
     position: relative;
-    /* Essential for overlay */
 }
 
 .overlayLink {
@@ -57,43 +55,82 @@
     width: 100%;
     height: 100%;
     z-index: 5;
-    /* Increased to sit above static content */
     display: block;
-    /* Essential for empty anchor */
 }
 
 .card:hover {
     transform: translateY(-7px);
     border-color: var(--primary-orange);
-    background: rgba(255, 255, 255, 0.02);
 }
 
-.cardHeader {
+.cardInner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cardImageWrapper {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.05);
+}
+
+.tagOverlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: var(--primary-orange);
+    color: #171717;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0.5rem;
+}
+
+.metaData {
+    font-size: 0.75rem;
+    color: #52525b;
+    margin-bottom: 0.8rem;
+    display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    gap: 0.5rem;
 }
 
-.folderIcon {
-    color: var(--primary-orange);
-    font-size: 40px;
-}
-
-.links {
-    display: flex;
-    gap: 15px;
-    color: #8892b0;
+.dot {
+    opacity: 0.5;
 }
 
 .iconLink {
-    color: #a8b2d1;
-    font-size: 22px;
+    color: #71717a;
+    text-decoration: none;
     transition: color 0.2s ease;
-    cursor: pointer;
     z-index: 10;
-    /* Bring above overlay */
     position: relative;
+    font-weight: 500;
 }
 
 .iconLink:hover {
@@ -101,9 +138,9 @@
 }
 
 .projectTitle {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    color: var(--foreground);
+    color: #f4f4f5;
     margin-bottom: 0.75rem;
     transition: color 0.2s;
 }
@@ -113,24 +150,24 @@
 }
 
 .projectDesc {
-    font-size: 1rem;
-    color: #8892b0;
+    font-size: 0.9rem;
+    color: #71717a;
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.5;
     flex-grow: 1;
 }
 
-.tags {
-    display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: #8892b0;
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
     .section {
         padding: 4rem 2rem;
     }
