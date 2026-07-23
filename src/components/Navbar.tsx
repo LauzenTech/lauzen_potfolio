@@ -34,7 +34,7 @@ export default function Navbar() {
                 Lauzen<span>.</span>
             </div>
 
-            {/* Desktop Links */}
+            {/* Desktop Linkss */}
             <ul className={styles.links}>
                 <li><Link href="/" className={styles.link}>Home</Link></li>
                 <li><Link href="/#sobre" className={styles.link}>Sobre</Link></li>
