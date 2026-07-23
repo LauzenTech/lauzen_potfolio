@@ -10,7 +10,7 @@ export interface Project {
     solution: string;
 
     roi: string;
-    image?: string; // Optional for now
+    image?: string; // Optional for agora
     video?: string; // Optional video URL
 }
 
