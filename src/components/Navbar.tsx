@@ -46,7 +46,7 @@ export default function Navbar() {
                 Contacte-me
             </Link>
 
-            {/* Mobile Menu Icon */}
+            {/* Mobile Menu Icons */}
             <div className={styles.mobileToggle} onClick={toggleMenu}>
                 {isOpen ? <FiX /> : <FiMenu />}
             </div>
