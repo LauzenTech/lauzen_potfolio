@@ -43,7 +43,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: border-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.25s ease;
     cursor: pointer;
     position: relative;
 }
@@ -59,7 +59,7 @@
 }
 
 .card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-7px) !important;
     border-color: var(--primary-orange);
 }
 

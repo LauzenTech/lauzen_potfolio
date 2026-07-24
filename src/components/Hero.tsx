@@ -4,7 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import styles from './hero.module.css';
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(useGSAP);
+}
 
 
 const sentence = {
@@ -166,6 +172,20 @@ export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const mousePos = useRef({ x: 0, y: 0 });
 
+    useGSAP(() => {
+        gsap.fromTo(".hero-reveal", 
+            { y: 50, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 1.2, 
+                stagger: 0.15, 
+                ease: "power4.out",
+                delay: 1.8 // Wait for the typing effect to finish
+            }
+        );
+    }, { scope: heroRef });
+
     const titles = [
         "Engenheiro Informático.", 
         "Engenheiro Criativo.",
@@ -222,22 +242,24 @@ export default function Hero() {
                 </h1>
 
                 {/* Description and buttons fade in normally to not be annoying */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2, duration: 1 }}
-                >
-                    <p className={styles.description}>
-                        As melhores soluções não começam com código.<br />
-                        Começam quando alguém faz a pergunta certa.
-                    </p>
+                <div style={{ marginTop: '0.8rem' }}>
+                    <div style={{ overflow: 'hidden' }}>
+                        <p className={`${styles.description} hero-reveal`} style={{ marginBottom: '0.2rem' }}>
+                            As melhores soluções não começam com código.
+                        </p>
+                    </div>
+                    <div style={{ overflow: 'hidden' }}>
+                        <p className={`${styles.description} hero-reveal`} style={{ marginBottom: 0 }}>
+                            Começam quando alguém faz a pergunta certa.
+                        </p>
+                    </div>
 
-                    <div className={styles.buttons}>
+                    <div className={`${styles.buttons} hero-reveal`} style={{ marginTop: '1.5rem' }}>
                         <Link href="#sobre" className={styles.primaryBtn}>
                             Descobrir a minha forma de pensar
                         </Link>
                     </div>
-                </motion.div>
+                </div>
             </div>
             
             <motion.div 

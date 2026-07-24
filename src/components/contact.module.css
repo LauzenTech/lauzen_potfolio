@@ -13,7 +13,7 @@
     font-size: 3rem;
     font-weight: 700;
     color: var(--foreground);
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .text {
@@ -48,7 +48,7 @@
     color: #f4f4f5;
     font-size: 1.8rem;
     max-width: 800px;
-    margin: 3rem auto 4rem;
+    margin: 1.2rem auto 2.5rem;
     text-align: center;
     line-height: 1.5;
     font-weight: 500;

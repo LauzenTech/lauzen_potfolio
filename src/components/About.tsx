@@ -4,7 +4,14 @@ import { motion, useInView, useSpring, useTransform, AnimatePresence } from 'fra
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FiCompass, FiCpu, FiZap, FiTrendingUp } from 'react-icons/fi';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './about.module.css';
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 // Component to handle counting animation1
 function Counter({ value }: { value: string }) {
@@ -45,9 +52,27 @@ function Counter({ value }: { value: string }) {
 
 export default function About() {
     const [activeBadge, setActiveBadge] = useState<number | null>(null);
+    const aboutRef = useRef<HTMLElement>(null);
+    const photoRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        gsap.fromTo(photoRef.current, 
+            { y: -30 }, 
+            {
+                y: 30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: aboutRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1 // smooth scrubbing, takes 1 second to "catch up"
+                }
+            }
+        );
+    }, { scope: aboutRef });
 
     return (
-        <section id="sobre" className={styles.aboutSection}>
+        <section id="sobre" className={styles.aboutSection} ref={aboutRef}>
             <div className={styles.content}>
                 {/* Left Column: Pill Badge, Bio Text & Title */}
                 <motion.div
@@ -86,7 +111,7 @@ export default function About() {
                 >
                     <div className={styles.imageStage}>
                         {/* Central Photo */}
-                        <div className={styles.imageFrame}>
+                        <div className={styles.imageFrame} ref={photoRef}>
                             <Image
                                 src="/lads_port.webp"
                                 alt="Ladislau Piedoso Borges"
