@@ -155,7 +155,7 @@
 
 @media (max-width: 600px) {
     .section {
-        padding: 5rem 1.5rem;
+        padding: 5rem 5%;
         gap: 2.5rem;
     }
 

@@ -23,16 +23,270 @@
 
 .content {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1.1fr 1fr;
     gap: 4rem;
     align-items: start;
 }
 
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pillBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 159, 28, 0.4);
+    background: rgba(255, 159, 28, 0.05);
+    color: var(--primary-orange);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    font-family: monospace;
+    width: fit-content;
+}
+
+.pillBadgeRight {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    font-family: monospace;
+    width: fit-content;
+    margin-bottom: 1.5rem;
+}
+
+.authorCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50px;
+    width: fit-content;
+}
+
+.authorAvatarWrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--primary-orange);
+    flex-shrink: 0;
+}
+
+.authorAvatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f3f4f6;
+}
+
+.authorHandle {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.imageStage {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+/* Giant Background Words behind photo */
+.bgWordsContainer {
+    position: absolute;
+    inset: -20px -40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    opacity: 0.12;
+}
+
+.bgWord {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    white-space: nowrap;
+}
+
+.bgWord:nth-child(even) {
+    text-align: right;
+    color: var(--primary-orange);
+}
+
+.imageFrame {
+    position: relative;
+    z-index: 5;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 159, 28, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 390px;
+    background: rgba(18, 18, 20, 0.9);
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.imageFrame:hover .profileImage {
+    transform: scale(1.04);
+}
+
+/* Sleek Interactive Floating Badges */
+.interactiveBadge {
+    position: absolute;
+    background: rgba(18, 18, 22, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 159, 28, 0.35);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 159, 28, 0.12);
+    padding: 0.45rem 0.9rem;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    width: auto;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.interactiveBadge:hover, .badgeOpen {
+    border-color: var(--primary-orange);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 159, 28, 0.35);
+}
+
+.badgeOpen {
+    border-radius: 16px !important;
+    padding: 0.75rem 1rem !important;
+    background: rgba(20, 20, 24, 0.98) !important;
+    z-index: 50 !important;
+    width: 240px;
+}
+
+.badgeHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.iconCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255, 159, 28, 0.15);
+    color: var(--primary-orange);
+    flex-shrink: 0;
+}
+
+.badgeIcon {
+    font-size: 0.9rem;
+}
+
+.badgeValue {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--primary-orange);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.badgeDetails {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.badgeSub {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #f3f4f6;
+}
+
+.badgeDesc {
+    font-size: 0.72rem;
+    color: #9ca3af;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.badgeTopLeft {
+    top: 20px;
+    left: -20px;
+}
+
+.badgeTopRight {
+    top: 60px;
+    right: -20px;
+}
+
+.badgeBottomLeft {
+    bottom: 70px;
+    left: -20px;
+}
+
+.badgeBottomRight {
+    bottom: 20px;
+    right: -10px;
+}
+
 .textColumn p {
     color: #8892b0;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .highlight {
@@ -40,56 +294,69 @@
     font-weight: 600;
 }
 
-.statsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.statCard {
-    background: rgba(255, 159, 28, 0.05);
-    border: 1px solid rgba(255, 159, 28, 0.1);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.statValue {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary-orange);
-    margin-bottom: 0.5rem;
-}
-
-.statLabel {
-    font-size: 0.9rem;
-    color: #ccc;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
 @media (max-width: 900px) {
     .aboutSection {
-        padding: 6rem 1.5rem;
+        padding: 5rem 5%;
     }
 
     .content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 3.5rem;
+    }
+
+    .rightColumn {
+        order: -1;
+    }
+
+    .imageStage {
+        max-width: 290px;
+        min-height: 380px;
+    }
+
+    .bgWordsContainer {
+        inset: -10px -20px;
+        opacity: 0.15;
+    }
+
+    .bgWord {
+        font-size: 3rem;
+    }
+
+    .floatingBadge {
+        width: 145px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .badgeTopLeft {
+        top: -10px;
+        left: -10px;
+    }
+
+    .badgeTopRight {
+        top: 25px;
+        right: -10px;
+    }
+
+    .badgeBottomLeft {
+        bottom: 35px;
+        left: -10px;
+    }
+
+    .badgeBottomRight {
+        bottom: -10px;
+        right: -10px;
+    }
+
+    .badgeValue {
+        font-size: 0.75rem;
+    }
+
+    .badgeLabel {
+        font-size: 0.65rem;
     }
 }
 
 @media (max-width: 600px) {
-    .statsGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .statCard {
-        padding: 1rem 0.5rem;
-    }
-
     .title {
         font-size: 1.8rem;
         flex-direction: column;
@@ -99,22 +366,12 @@
     }
 
     .line {
-        width: 100px;
-        max-width: 100%;
-        margin-left: 0;
+        display: none;
     }
 
     .textColumn p {
-        font-size: 1rem;
+        font-size: 0.98rem;
         line-height: 1.6;
         margin-bottom: 1rem;
-    }
-
-    .statValue {
-        font-size: 1.4rem;
-    }
-    
-    .statLabel {
-        font-size: 0.75rem;
     }
 }
